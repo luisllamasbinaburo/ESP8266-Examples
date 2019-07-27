@@ -1,3 +1,5 @@
+ESP8266WebServer server(80);
+
 // Funcion que se ejecutara en la URI '/'
 void handleRoot() 
 {

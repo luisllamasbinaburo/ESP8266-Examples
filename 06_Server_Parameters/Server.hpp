@@ -1,3 +1,5 @@
+ESP8266WebServer server(80);
+
 // Funcion al recibir petición GET
 void getLED() 
 {
