@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>ESP8266 Forms</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+ 
+   <body>
+		<h1>Form example</h1>
+		<form action="/LED" method="post">
+		  Slider:<br>
+			<input type="range" id="pwmInput" name="pwmValue" min="0" max="1023" value="500" onchange="updateTextInput(this.value);" >
+			<input type="number" id="textInput" onchange="updateTextInput(this.value);" value="500" style="width:50px">
+			<label for="pwmInput">PWM</label><br>
+			<button type="submit" value="Submit">Send</button>
+		</form>
+		<script>
+			function updateTextInput(val) {
+			  console.log(val);
+			  document.getElementById('pwmInput').value = val; 
+			  document.getElementById('textInput').value = val; 
+			}
+		</script>		
+    </body>
+</html>
