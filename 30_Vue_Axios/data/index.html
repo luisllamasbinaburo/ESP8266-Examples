@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ESP8266 Vue + Axios</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+ 
+  <!-- Nuestra simple APP de ejemplo -->
+  <div id="app">
+	<div>
+		<button v-on:click="getAll()">GetAll</button>
+	</div>
+	<div>
+		<button v-on:click="get()">Get</button>
+		<input v-model="getId" placeholder="getId">
+	</div>
+	<div>
+		<button v-on:click="getFiltered()">Filter</button>
+		<input v-model="filter" placeholder="filter">
+	</div>
+	<div>
+		<button v-on:click="create()">Create</button>
+	</div>
+    <div>
+      <my-component v-for="item in items" v-bind:my="item" v-bind:key="item.id"></my-component>
+   </div>
+  </div>
+ 
+  <!-- Desde CDN -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+  <!--<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>-->
+
+  <script type="text/javascript" src="./vendor/vue.min.js"></script>
+  <script type="text/javascript" src="./vendor/axios.min.js"></script>
+    
+  <!-- Cargamos los ficheros que simular nuestro API y nuestra App en Vue.JS -->
+  <script type="text/javascript" src="./js/API.js"></script>
+  <script type="text/javascript" src="./js/app.js"></script>
+</body>
+</html>
