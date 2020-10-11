@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ESP8266 Vuetify + Axios</title>
+		<meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Desde CDN -->
+		<!--<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">-->
+		<!--<link href="https://cdn.jsdelivr.net/npm/vuetify@1.5.16/dist/vuetify.min.css" rel="stylesheet">-->
+
+		<link href="./vendor/google-fonts.css" rel="stylesheet">
+		<link href="./vendor/vuetify.min.css" rel="stylesheet">
+   </head>
+<body>
+		<div id="app">
+			<v-app id="inspire">
+				<v-container style="max-width: 600px">
+					<v-form>
+						<v-container>
+							<v-layout row>
+								<v-flex xs12 sm6 md3>
+									<v-btn color="info" @click="getAll">Get All</v-btn>
+								</v-flex>
+							</v-layout>
+
+							<v-layout row>
+								<v-flex xs12 sm6 md3>
+									<v-btn color="info" @click="getById">Get</v-btn>
+								</v-flex>
+
+								<v-flex xs12 sm6 md3>
+									<v-text-field v-model.number="getId" label="Id" solo type="number"></v-text-field>
+								</v-flex>
+							</v-layout>
+
+							<v-layout row>
+								<v-flex xs12 sm6 md3>
+									<v-btn color="info" @click="updateById">Update</v-btn>
+								</v-flex>
+
+								<v-flex xs12 sm6 md3>
+									<v-text-field v-model.number="updateId" label="Id" solo type="number"></v-text-field>
+								</v-flex>
+
+								<v-flex xs12 sm6 md3>
+									<v-text-field v-model="updateText" label="Text" solo></v-text-field>
+								</v-flex>
+							</v-layout>
+						</v-container>
+					</v-form>
+
+					<v-divider class="mb-3"></v-divider>
+
+					<v-text-field v-model="newItem" label="Add new item" solo @keydown.enter="create">
+						<v-fade-transition slot="append">
+							<v-icon v-if="newItem" @click="create">add_circle</v-icon>
+						</v-fade-transition>
+					</v-text-field>
+
+					<v-card>
+						<v-toolbar color="cyan" dark>
+							<v-toolbar-title>Total: {{ items.length }}</v-toolbar-title>
+						</v-toolbar>
+
+						<v-fade-transition class="py-0" group tag="v-list">
+							<template v-for="(item, i) in items">
+								<v-divider v-if="i !== 0" :key="`${i}-divider`" ></v-divider>
+
+								<v-list-tile :key="`${i}-${item.text}`">
+									<v-list-tile-action>
+										<v-list-tile-title v-text="item.id"></v-list-tile-title>
+									</v-list-tile-action>
+
+									<v-list-tile-action>
+										<v-list-tile-content>
+
+											<v-list-tile-title v-text="item.text"></v-list-tile-title>
+										</v-list-tile-content>
+									</v-list-tile-action>
+
+									<v-spacer></v-spacer>
+									<div>
+										<v-btn color="error" v-model="item" @click="remove(item)">Delete</v-btn>
+									</div>
+								</v-list-tile>
+							</template>
+						</v-fade-transition>
+
+						<v-snackbar v-model="snackbar" :bottom="true" :timeout="timeout">
+							{{ text }}
+							<v-btn color="pink" flat @click="snackbar = false">
+								Close
+							</v-btn>
+						</v-snackbar>
+					</v-card>
+				</v-container>
+			</v-app>
+		</div>
+
+	<!-- Desde CDN -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vuetify@1.5.16/dist/vuetify.min.js"></script>-->
+	<!--<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>-->
+
+	<script type="text/javascript" src="./vendor/vue.min.js"></script>
+	<script type="text/javascript" src="./vendor/vuetify.min.js"></script>
+	<script type="text/javascript" src="./vendor/axios.min.js"></script>
+	  
+	<script type="text/javascript" src="./js/API.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+   </body>
+</html>
