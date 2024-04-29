@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ESP8266 Axios</title>
+		<meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <div>
+                <button onclick="getAllRequest()">Get All</button>
+                <button onclick="getFilteredRequest()">Get Filtered</button>
+                <button onclick="getByIdRequest()">Get by Id</button>
+            </div>
+            <div>
+                <button onclick="postRequest()">Create</button>
+            </div>
+            <div>
+                <button onclick="patchRequest()">Update</button>
+            </div>
+            <div>
+                <button onclick="putRequest()">Replace</button>
+            </div>
+            <div>
+                <button onclick="deleteRequest()">Delete</button>
+            </div>
+        </div>
+        
+        <!-- Desde CDN -->
+        <!--<script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>-->
+        <script type="text/javascript" src="./vendor/axios.min.js"></script>
+
+        <script src="./js/API.js"></script>
+    </body>
+</html>

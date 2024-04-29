@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <title>ESP8266 VueJS</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="./vendor/google-fonts.css" rel="stylesheet">
+  <link href="./vendor/vuetify.min.css" rel="stylesheet">
+
+  <v-app id="app">
+    <v-toolbar app>Async ESP8266</v-toolbar>
+    <v-content>
+      <v-container fluid grid-list-md text-xs-center>
+
+        <v-layout row wrap>
+          <v-flex xs3>
+            <v-card>
+              <v-toolbar color="blue" dark>
+                <v-toolbar-title class="text-xs-center">Input example</v-toolbar-title>
+              </v-toolbar>
+              <v-list subheader>
+                  <gpio-input v-for="item in gpio_input_list" :gpio="item" :key="item.id" />
+              </v-list>
+            </v-card>
+          </v-flex>
+
+          <v-flex xs3>
+              <v-card>
+                <v-toolbar color="blue" dark>
+                  <v-toolbar-title class="text-xs-center">Output example</v-toolbar-title>
+                </v-toolbar>
+                <v-list subheader>
+                    <gpio-output v-for="item in gpio_output_list" v-bind:gpio="item" v-bind:key="item.id" />
+                </v-list>
+              </v-card>
+            </v-flex>
+
+            <v-flex xs3>
+                <v-card>
+                  <v-toolbar color="blue" dark>
+                    <v-toolbar-title class="text-xs-center">PWM example</v-toolbar-title>
+                  </v-toolbar>
+                  <v-list subheader>
+                      <pwm v-for="item in pwm_list" :gpio="item" :key="item.id" />
+                  </v-list>
+                </v-card>
+              </v-flex>
+
+              <v-flex xs3>
+                  <v-card>
+                    <v-toolbar color="blue" dark>
+                      <v-toolbar-title class="text-xs-center">Actions example</v-toolbar-title>
+                    </v-toolbar>
+                    <v-list subheader>
+                        <action v-for="item in action_list" :action="item" :key="item.id" />
+                    </v-list>
+                  </v-card>
+                </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
+
+  <!-- Desde CDN -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+  <script type="text/javascript" src="./vendor/vue.min.js"></script>
+  <script type="text/javascript" src="./vendor/vuetify.min.js"></script>
+  <script type="text/javascript" src="./vendor/nativeWs.min.js"></script>
+
+  <!-- Cargamos el fichero que contiene nuestra App en Vue.JS -->
+  <script type="text/javascript" src="./js/app.js"></script>
+</body>
+
+</html>

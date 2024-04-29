@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="">
+ 
+<head>
+  <title>ESP8266 VueJS</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+ 
+<body>
+  <div id="app">
+    <ol>
+      <!-- Usamos el componente que hemos definido en Vue.JS -->
+      <todo-item v-for="item in myList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+    </ol>
+  </div>
+ 
+  <!-- Desde CDN -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+  <script type="text/javascript" src="vendor/vue.min.js"></script>
+
+  <!-- Cargamos el fichero que contiene nuestra App en Vue.JS -->
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+ 
+</html>

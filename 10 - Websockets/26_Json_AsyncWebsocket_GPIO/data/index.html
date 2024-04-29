@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+    <title>ESP8266 Async GPIO</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <link rel="stylesheet" href="vendor/google-fonts.css">
+    <link rel="stylesheet" href="vendor/material.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <div class="mdl-card mdl-shadow--2dp">
+        <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">Async GPIO</h2>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+            <h6>Input example:</h6>
+            <ul class="mdl-list mdl-shadow--2dp">
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D0</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label id="input-label-D0" class="label-big Off-style">OFF</label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D5</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label id="input-label-D5" class="label-big Off-style">OFF</label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D6</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label id="input-label-D6" class="label-big Off-style">OFF</label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D7</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label id="input-label-D7" class="label-big Off-style">OFF</label>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+            <h6>Ouput example:</h6>
+            <ul class="mdl-list mdl-shadow--2dp">
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D8</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                            <input id="output-switch-D8" data-id="D8" type="checkbox" class="mdl-switch__input" checked 
+                            onchange="sendGPIO(this.dataset.id, this.checked)"/>
+                        </label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D9</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                            <input id="output-switch-D9" data-id="D9" type="checkbox" class="mdl-switch__input" checked 
+                            onchange="sendGPIO(this.dataset.id, this.checked)"/>
+                        </label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D10</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                            <input id="output-switch-D10" data-id="D10" type="checkbox" class="mdl-switch__input" checked 
+                            onchange="sendGPIO(this.dataset.id, this.checked)"/>
+                        </label>
+                    </span>
+                </li>
+                <li class="mdl-list__item">
+                    <span class="mdl-list__item-primary-content">D10</span>
+                    <span class="mdl-list__item-secondary-action">
+                        <div class="mdl-grid">
+                            <div class="mdl-cell mdl-cell--10-col">
+                                <input id="slider-pwm-1" data-id="1" class="mdl-slider mdl-js-slider"
+                                    type="range" min="0" max="255" value="25"
+                                    onchange="sendPWM(this.dataset.id, this.value);" >
+                            </div>
+                            <div class="mdl-cell mdl-cell--2-col">
+                                <input id="slider-text-pwm-1" data-id="1" style="width:35px;"
+                                onchange="sendPWM(this.dataset.id, this.value);" value="25"></input>
+                            </div>
+                        </div>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mdl-card__supporting-text ">
+            <div>
+                <h6>Example</h6>
+                <button class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect" style="width: 160px;"
+                    data-id="action-1" onclick="sendAction(this.dataset.id)">
+                    Do something
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="vendor/material.js"></script>
+
+</html>

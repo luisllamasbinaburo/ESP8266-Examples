@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>ESP8266 Json Websocket</title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+ 
+   <body>
+	   <div>
+		  Radio:<br>
+			<input type="text" id="ledNumber" name="ledNumber" value="10" checked><br>
+			<input type="radio" id="ledOn" name="status" value="true" checked>
+			<label for="ledOn">ON</label><br>
+			<input type="radio" id="ledOff" name="status" value="false">
+			<label for="ledOff">OFF</label><br>
+			<button type="button" onclick="sendData()">Send data</button>
+		</div>
+		<div>
+			<br>
+			<button type="button" onclick="getData()">Get Data!</button>
+			<label id="receivedText"/>
+		</div>
+	</body>
+	
+    <script type="text/javascript" src="./js/main.js"></script>
+</html>
